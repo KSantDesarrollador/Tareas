@@ -11,22 +11,25 @@ function TaskForm() {
   //Función que toma los valores del formulario y alimenta al elemento newTask
   const handleSubmit = (e) => {
     e.preventDefault();
-    createTask({
-      title,
-      description,
-    });
+    if (title !== "" && description !== "") {
+      createTask({
+        title,
+        description,
+      });
 
-    setTitle("");
-    setDescription("");
+      setTitle("");
+      setDescription("");
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       &nbsp;
-      <table cellPadding={5}>
+      <table cellPadding={5} className="table table-secondary  table-striped">
         <tr>
           <td>
             <input
+              className="form-control"
               size={30}
               placeholder="Escribe una tarea"
               onChange={(e) => setTitle(e.target.value)}
@@ -36,6 +39,7 @@ function TaskForm() {
           </td>
           <td>
             <input
+              className="form-control"
               size={55}
               placeholder="Descripción de la tarea"
               onChange={(e) => setDescription(e.target.value)}
@@ -43,7 +47,7 @@ function TaskForm() {
             ></input>
           </td>
           <td>
-            &nbsp;<button>SAVE</button>
+            &nbsp;<button className="btn btn-success">SAVE</button>
           </td>
         </tr>
       </table>

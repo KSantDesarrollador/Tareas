@@ -5,10 +5,10 @@ import TaskForm from "./components/TaskForm";
 function App() {
 
   return (
-    <>
+    <main className="container">
       <TaskForm/>
       <TaskList/>
-    </>
+    </main>
   );
 }
 
